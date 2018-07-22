@@ -1,0 +1,1 @@
+A basic web app based on Python Flask, SQLAlchemy and jinja2.
