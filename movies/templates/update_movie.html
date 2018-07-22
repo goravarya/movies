@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <form action="{{ url_for('handle_create_update_movie') }}" method="post">
+        <input type="hidden" name="mode" value="{{ values.mode }}" />
+        <input type="hidden" name="movie_id" value="{{ values.movie_id }}" />
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{ values.name }}" />
+        </div>
+        <div class="form-group">
+            <label for="name">Director Name</label>
+            <input type="text" class="form-control" name="director_name" id="director_name" value="{{ values.director_name }}" />
+        </div>
+        <div class="form-group">
+            <label for="name">Release Year</label>
+            <input type="text" class="form-control" name="release_year" id="release_year" value="{{ values.release_year }}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ url_for('index') }}'">Cancel</button>
+    </form>
+{% endblock %}

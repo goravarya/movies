@@ -1,0 +1,8 @@
+--requirement requirements.txt
+
+# Linting
+pep8==1.7.1
+flake8==3.5.0
+
+# Testing
+pytest==3.6.3

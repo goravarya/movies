@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <div>
+        <h2 class="mt-5">Movies</h2>
+        {% if message %}
+            <div class="alert alert-info mt-2">
+                {{ message }}
+            </div>
+        {% endif %}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Director Name</th>
+              <th scope="col">Release Year</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ movie.name }}</td>
+                    <td>{{ movie.director_name }}</td>
+                    <td>{{ movie.release_year }}</td>
+                    <td>
+                        <a href="{{ url_for('update_movie', movie_id=movie.movie_id) }}">
+                            <span class="oi oi-pencil mr-2" title="Edit Movie"></span>
+                        </a>
+                        <a href="{{ url_for('delete_movie', movie_id=movie.movie_id) }}">
+                            <span class="oi oi-delete" title="Remove Movie"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+{% endblock %}
